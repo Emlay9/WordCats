@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context="com.example.emily.wordswipe.LevelActivity">
+    
+    <TextView
+    android:id="@+id/E_in_ELF"
+    android:layout_width="25dp"
+    android:layout_height="25dp"
+    android:layout_marginRight="3dp"
+    android:gravity="center"
+    android:textStyle="bold"
+    android:textAllCaps="true"
+    android:textSize="20sp"
+    android:background="@drawable/letter_background_shape"
+    android:textColor="@color/white"
+    android:text="e"/>
+
+    <TextView
+        android:id="@+id/L_in_ELF"
+        android:layout_toRightOf="@+id/E_in_ELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="2dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:background="@drawable/letter_background_shape"
+        android:textColor="@color/white"
+        android:text="l"/>
+
+    <TextView
+        android:id="@+id/F_in_ELF"
+        android:layout_toRightOf="@+id/L_in_ELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="2dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textSize="20sp"
+        android:background="@drawable/letter_background_shape"
+        android:textColor="@color/white"
+        android:text="f"/>
+
+</RelativeLayout>
