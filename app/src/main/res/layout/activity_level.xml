@@ -316,6 +316,7 @@
         android:textStyle="bold" />
 
     <TextView
+       android:id="@+id/letter_choice_circle"
         android:layout_width="220dp"
         android:layout_height="220dp"
         android:layout_marginTop="90dp"
