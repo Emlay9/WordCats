@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="20dp"
+    android:layout_marginLeft="20dp"
+    android:layout_marginTop="40dp"
     tools:context="com.example.emily.wordswipe.LevelActivity">
 
     <TextView
@@ -52,8 +53,8 @@
         android:id="@+id/S_in_SHE"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginBottom="30dp"
         android:layout_below="@+id/E_in_ELF"
+        android:layout_marginBottom="30dp"
         android:layout_marginRight="2dp"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
@@ -67,8 +68,8 @@
         android:id="@+id/H_in_SHE"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginRight="2dp"
         android:layout_below="@id/E_in_ELF"
+        android:layout_marginRight="2dp"
         android:layout_toRightOf="@+id/S_in_SHE"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
@@ -76,14 +77,14 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/E_in_SHE"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_marginRight="2dp"
         android:layout_below="@id/E_in_ELF"
+        android:layout_marginRight="2dp"
         android:layout_toRightOf="@+id/H_in_SHE"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
@@ -91,7 +92,7 @@
         android:textAllCaps="true"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/S_in_SELF"
@@ -111,9 +112,9 @@
         android:id="@+id/E_in_SELF"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/S_in_SELF"
         android:layout_below="@+id/S_in_SHE"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/S_in_SELF"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="e"
@@ -126,9 +127,9 @@
         android:id="@+id/L_in_SELF"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/E_in_SELF"
         android:layout_below="@+id/S_in_SHE"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/E_in_SELF"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="l"
@@ -141,9 +142,9 @@
         android:id="@+id/F_in_SELF"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/L_in_SELF"
         android:layout_below="@+id/S_in_SHE"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/L_in_SELF"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="f"
@@ -156,8 +157,8 @@
         android:id="@+id/F_in_FLESH"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/F_in_ELF"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/F_in_ELF"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="f"
@@ -170,8 +171,8 @@
         android:id="@+id/L_in_FLESH"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/F_in_FLESH"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/F_in_FLESH"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="L"
@@ -184,8 +185,8 @@
         android:id="@+id/E_in_FLESH"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/L_in_FLESH"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/L_in_FLESH"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="E"
@@ -198,8 +199,8 @@
         android:id="@+id/S_in_FLESH"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/E_in_FLESH"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/E_in_FLESH"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="S"
@@ -212,8 +213,8 @@
         android:id="@+id/H_in_FLESH"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/L_in_SHELF"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/L_in_SHELF"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="H"
@@ -226,9 +227,9 @@
         android:id="@+id/S_in_SHELF"
         android:layout_width="25dp"
         android:layout_height="25dp"
-        android:layout_toRightOf="@+id/F_in_ELF"
         android:layout_below="@+id/E_in_ELF"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/F_in_ELF"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="s"
@@ -242,8 +243,8 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_below="@+id/E_in_ELF"
-        android:layout_toRightOf="@+id/F_in_FLESH"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/F_in_FLESH"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="H"
@@ -257,8 +258,8 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_below="@+id/E_in_ELF"
-        android:layout_toRightOf="@+id/L_in_FLESH"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/L_in_FLESH"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="E"
@@ -272,8 +273,8 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_below="@+id/E_in_ELF"
-        android:layout_toRightOf="@+id/E_in_FLESH"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/E_in_FLESH"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="L"
@@ -287,8 +288,8 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_below="@+id/E_in_ELF"
-        android:layout_toRightOf="@+id/S_in_FLESH"
         android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/S_in_FLESH"
         android:background="@drawable/letter_background_shape"
         android:gravity="center"
         android:text="F"
@@ -297,6 +298,88 @@
         android:textSize="20sp"
         android:textStyle="bold" />
 
-    
+    <TextView
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:layout_marginTop="90dp"
+        android:background="@drawable/circle_letter_bg"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/F_in_SELF"/>
+
+
+
+
+    <TextView
+        android:id="@+id/top_letter_choice"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/F_in_SELF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="92dp"
+        android:gravity="center"
+        android:text="e"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/left_top_letter_choice"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/top_letter_choice"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="s"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/right_top_letter_choice"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/top_letter_choice"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/left_top_letter_choice"
+        android:gravity="center"
+        android:text="h"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/left_bottom_letter_choice"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/left_top_letter_choice"
+        android:layout_marginLeft="110dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="l"
+        android:textStyle="bold"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/right_bottom_letter_choice"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/left_top_letter_choice"
+        android:layout_toRightOf="@+id/left_bottom_letter_choice"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="f"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="40sp" />
+
 
 </RelativeLayout>

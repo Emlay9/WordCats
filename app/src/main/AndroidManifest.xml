@@ -18,7 +18,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".LevelActivity" />
-        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
