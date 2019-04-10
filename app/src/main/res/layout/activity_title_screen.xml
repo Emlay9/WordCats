@@ -17,7 +17,7 @@
 
 
     <Button
-        android:id="@+id/angry_btn"
+        android:id="@+id/play_btn"
         android:text="@string/play"
         android:textColor="#FFFFFF"
         android:textSize="22sp"
