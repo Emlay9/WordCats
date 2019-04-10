@@ -10,15 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".TitleScreenActivity"
-            android:theme="@style/generalnotitle">
+            android:name=".TitleScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".LevelActivity"></activity>
+        <activity android:name=".LevelActivity" />
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>

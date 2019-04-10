@@ -15,9 +15,9 @@
         android:layout_height="wrap_content"
         android:src="@drawable/title"/>
 
+
     <Button
         android:id="@+id/angry_btn"
-
         android:text="@string/play"
         android:textColor="#FFFFFF"
         android:textSize="22sp"

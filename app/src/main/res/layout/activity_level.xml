@@ -3,48 +3,300 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="10dp"
+    android:layout_margin="20dp"
     tools:context="com.example.emily.wordswipe.LevelActivity">
-    
+
     <TextView
-    android:id="@+id/E_in_ELF"
-    android:layout_width="25dp"
-    android:layout_height="25dp"
-    android:layout_marginRight="3dp"
-    android:gravity="center"
-    android:textStyle="bold"
-    android:textAllCaps="true"
-    android:textSize="20sp"
-    android:background="@drawable/letter_background_shape"
-    android:textColor="@color/white"
-    android:text="e"/>
+        android:id="@+id/E_in_ELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginRight="3dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="e"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/L_in_ELF"
-        android:layout_toRightOf="@+id/E_in_ELF"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginRight="2dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:textSize="20sp"
+        android:layout_toRightOf="@+id/E_in_ELF"
         android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="l"
+        android:textAllCaps="true"
         android:textColor="@color/white"
-        android:text="l"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/F_in_ELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="30dp"
         android:layout_toRightOf="@+id/L_in_ELF"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="f"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/S_in_SHE"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="30dp"
+        android:layout_below="@+id/E_in_ELF"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="s"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/H_in_SHE"
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginRight="2dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textAllCaps="true"
-        android:textSize="20sp"
+        android:layout_below="@id/E_in_ELF"
+        android:layout_toRightOf="@+id/S_in_SHE"
         android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="h"
+        android:textAllCaps="true"
         android:textColor="@color/white"
-        android:text="f"/>
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/E_in_SHE"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginRight="2dp"
+        android:layout_below="@id/E_in_ELF"
+        android:layout_toRightOf="@+id/H_in_SHE"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="e"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/S_in_SELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/S_in_SHE"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="s"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/E_in_SELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/S_in_SELF"
+        android:layout_below="@+id/S_in_SHE"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="e"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/L_in_SELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/E_in_SELF"
+        android:layout_below="@+id/S_in_SHE"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="l"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/F_in_SELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/L_in_SELF"
+        android:layout_below="@+id/S_in_SHE"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="f"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/F_in_FLESH"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/F_in_ELF"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="f"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/L_in_FLESH"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/F_in_FLESH"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="L"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/E_in_FLESH"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/L_in_FLESH"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="E"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/S_in_FLESH"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/E_in_FLESH"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="S"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/H_in_FLESH"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/L_in_SHELF"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="H"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/S_in_SHELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_toRightOf="@+id/F_in_ELF"
+        android:layout_below="@+id/E_in_ELF"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="s"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/H_in_SHELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/E_in_ELF"
+        android:layout_toRightOf="@+id/F_in_FLESH"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="H"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/E_in_SHELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/E_in_ELF"
+        android:layout_toRightOf="@+id/L_in_FLESH"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="E"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/L_in_SHELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/E_in_ELF"
+        android:layout_toRightOf="@+id/E_in_FLESH"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="L"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/F_in_SHELF"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/E_in_ELF"
+        android:layout_toRightOf="@+id/S_in_FLESH"
+        android:layout_marginRight="2dp"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center"
+        android:text="F"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    
 
 </RelativeLayout>
