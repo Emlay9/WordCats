@@ -67,6 +67,19 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
 
         // ACTION_MOVE means when your finger is dragging across the screen
+        switch(event.getAction())
+        {
+            case MotionEvent.ACTION_MOVE:
+            {
+
+            }
+            case MotionEvent.ACTION_UP:
+            {
+                checkForMatch();
+                clearSelectedLetters();
+
+            }
+        }
             if(event.getAction() == MotionEvent.ACTION_MOVE ) {
                 float x = event.getX();
                 float y = event.getY();
@@ -75,46 +88,18 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
 //                while (event.getAction() != MotionEvent.ACTION_UP) {
                     if (view.getId() == R.id.letter_choice_circle) {
-                                Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
-                                countLettersPicked++;
+                        Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
                         getLettersPicked(x, y);
 
-                            if(x < 120 && y < 365 && y > 230 && topLeftLetterPicked == false)
-                            {
-                                firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
-                                firstLetterPicked.setText("S");
-                                topLeftLetterPicked = true;
-                            }
-                            if(x > 290 && x < 450 && y < 180)
-                            {
-                                secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
-                                secondLetterPicked.setText("E");
-                            }
-
-//                            if (topLetterPicked == false) {
-//                                lettersPicked = addLetterChoice(lettersPicked, countLettersPicked, topLetter.getText().toString());
-//                                displayLetterPicker(lettersPicked);
-//                                countLettersPicked++;
-
-//                                topLetterPicked = true;
-//                            }
                         }
-//                        case R.id.left_top_letter_choice: {
-//                                Toast.makeText(this, "top left letter", Toast.LENGTH_SHORT).show();
-////                            firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
-////                            firstLetterPicked.setText("S");
-////                            if (!topLeftLetterPicked) {
-////                                lettersPicked = addLetterChoice(lettersPicked, countLettersPicked, topLeftLetter.getText().toString());
-////                                displayLetterPicker(lettersPicked);
-////                                countLettersPicked++;
-//                                topLeftLetterPicked = true;
-//                            }
-//                            break;
-//                        }
+
                     }//end switch
 //            }
         return true;
     }
+
+
+
 
     private void getLettersPicked(float x, float y) {
         Boolean topLetterPicked = false;
@@ -156,6 +141,14 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
             secondLetterPicked.setText(lettersPicked.get(1));
         }
     }
+
+    private void checkForMatch() {\
+    }
+
+    private void clearSelectedLetters() {
+
+    }
+
 
 //    private void displayLetterPicker(List<String> lettersPicked) {
 //        firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
