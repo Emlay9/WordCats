@@ -171,6 +171,33 @@
         android:textSize="20sp"/>
 
     <TextView
+        android:id="@+id/third_letter_picked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/F_in_SELF"
+        android:layout_toRightOf="@+id/second_letter_picked"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/fourth_letter_picked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/F_in_SELF"
+        android:layout_toRightOf="@+id/third_letter_picked"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/fifth_letter_picked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/F_in_SELF"
+        android:layout_toRightOf="@+id/fourth_letter_picked"
+        android:textSize="20sp"/>
+
+    <TextView
         android:id="@+id/F_in_FLESH"
         android:layout_width="25dp"
         android:layout_height="25dp"
@@ -324,9 +351,6 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/F_in_SELF"/>
 
-
-
-
     <TextView
         android:id="@+id/top_letter_choice"
         android:layout_width="45dp"
@@ -360,7 +384,7 @@
         android:layout_width="45dp"
         android:layout_height="45dp"
         android:layout_below="@+id/top_letter_choice"
-        android:layout_marginLeft="110dp"
+        android:layout_marginLeft="115dp"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/left_top_letter_choice"
         android:gravity="center"

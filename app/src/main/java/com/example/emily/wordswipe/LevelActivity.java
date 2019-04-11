@@ -74,10 +74,22 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                 //top letter x=
 
 //                while (event.getAction() != MotionEvent.ACTION_UP) {
-                    switch (view.getId()) {
-                        case R.id.letter_choice_circle: {
+                    if (view.getId() == R.id.letter_choice_circle) {
                                 Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
                                 countLettersPicked++;
+                        getLettersPicked(x, y);
+
+                            if(x < 120 && y < 365 && y > 230 && topLeftLetterPicked == false)
+                            {
+                                firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
+                                firstLetterPicked.setText("S");
+                                topLeftLetterPicked = true;
+                            }
+                            if(x > 290 && x < 450 && y < 180)
+                            {
+                                secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
+                                secondLetterPicked.setText("E");
+                            }
 
 //                            if (topLetterPicked == false) {
 //                                lettersPicked = addLetterChoice(lettersPicked, countLettersPicked, topLetter.getText().toString());
@@ -86,7 +98,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
 //                                topLetterPicked = true;
 //                            }
-                            break;
                         }
 //                        case R.id.left_top_letter_choice: {
 //                                Toast.makeText(this, "top left letter", Toast.LENGTH_SHORT).show();
@@ -101,33 +112,61 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 //                            break;
 //                        }
                     }//end switch
-                }//end if
 //            }
         return true;
     }
 
-    private List addLetterChoice(List<String> lettersPicked, int countLettersPicked, String letter) {
-        if(countLettersPicked == 0)
+    private void getLettersPicked(float x, float y) {
+        Boolean topLetterPicked = false;
+        Boolean topLeftLetterPicked = false;
+        String topLeftLetter = "S";
+        int countLettersPicked = 0;
+        List<String> lettersPicked = new ArrayList<>();
+
+        if(x < 120 && y < 365 && y > 230 && topLeftLetterPicked == false)
         {
-            lettersPicked.add(0, letter);
+            lettersPicked.add(countLettersPicked, topLeftLetter);
+//            firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
+//            firstLetterPicked.setText("S");
+            topLeftLetterPicked = true;
+            countLettersPicked++;
+            displayLetterChoice(lettersPicked, countLettersPicked);
+
         }
-        if(countLettersPicked == 1)
+        if(x > 290 && x < 450 && y < 180 && topLetterPicked == false)
         {
-            lettersPicked.add(1, letter);
+            lettersPicked.add(countLettersPicked, topLeftLetter);
+            displayLetterChoice(lettersPicked, countLettersPicked);
+            countLettersPicked++;
+//            secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
+//            secondLetterPicked.setText("E");
         }
-        return lettersPicked;
     }
 
-    private void displayLetterPicker(List<String> lettersPicked) {
-        firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
-        firstLetterPicked.setText(lettersPicked.get(0));
+    private void displayLetterChoice(List<String> lettersPicked, int countLettersPicked) {
 
-        if (lettersPicked.size() > 1)
+        if(countLettersPicked == 1)
+        {
+            firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
+            firstLetterPicked.setText(lettersPicked.get(0));
+        }
+        if(countLettersPicked == 2)
         {
             secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
             secondLetterPicked.setText(lettersPicked.get(1));
         }
-
-
     }
+
+//    private void displayLetterPicker(List<String> lettersPicked) {
+//        firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
+//        firstLetterPicked.setText(lettersPicked.get(0));
+//
+//        if (lettersPicked.size() > 1)
+//        {
+//            secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
+//            secondLetterPicked.setText(lettersPicked.get(1));
+//        }
+//    }
+
+
 }
