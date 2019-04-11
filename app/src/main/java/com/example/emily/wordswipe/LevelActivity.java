@@ -64,68 +64,60 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         List<String> lettersPicked = new ArrayList<>();
         String firstLetter;
         String secondLetter;
+        int countLettersPicked = 0;
 
 
         // ACTION_MOVE means when your finger is dragging across the screen
+        // ACTION_UP means when you stop touching the screen
         switch(event.getAction())
         {
             case MotionEvent.ACTION_MOVE:
             {
+                float x = event.getX();
+                float y = event.getY();
+                if (view.getId() == R.id.letter_choice_circle) {
+                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
+                    while(countLettersPicked <= 2)
+                    {
+                        getLettersPicked(x, y, countLettersPicked);
+                        countLettersPicked++;
+                    }
 
+                }
             }
             case MotionEvent.ACTION_UP:
             {
                 checkForMatch();
-                clearSelectedLetters();
-
+//                clearSelectedLetters();
             }
         }
-            if(event.getAction() == MotionEvent.ACTION_MOVE ) {
-                float x = event.getX();
-                float y = event.getY();
-
-                //top letter x=
-
-//                while (event.getAction() != MotionEvent.ACTION_UP) {
-                    if (view.getId() == R.id.letter_choice_circle) {
-                        Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
-                        getLettersPicked(x, y);
-
-                        }
-
-                    }//end switch
-//            }
         return true;
     }
 
-
-
-
-    private void getLettersPicked(float x, float y) {
+    private void getLettersPicked(float x, float y, int countLettersPicked) {
         Boolean topLetterPicked = false;
         Boolean topLeftLetterPicked = false;
+        String topLetter = "E";
         String topLeftLetter = "S";
-        int countLettersPicked = 0;
         List<String> lettersPicked = new ArrayList<>();
 
-        if(x < 120 && y < 365 && y > 230 && topLeftLetterPicked == false)
-        {
-            lettersPicked.add(countLettersPicked, topLeftLetter);
-//            firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
-//            firstLetterPicked.setText("S");
-            topLeftLetterPicked = true;
-            countLettersPicked++;
-            displayLetterChoice(lettersPicked, countLettersPicked);
-
-        }
-        if(x > 290 && x < 450 && y < 180 && topLetterPicked == false)
-        {
-            lettersPicked.add(countLettersPicked, topLeftLetter);
-            displayLetterChoice(lettersPicked, countLettersPicked);
-            countLettersPicked++;
-//            secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
-//            secondLetterPicked.setText("E");
-        }
+//        while(countLettersPicked <= 2)
+//        {
+            if(x < 120 && y < 365 && y > 230)
+            {
+                lettersPicked.add(countLettersPicked, topLeftLetter);
+                topLeftLetterPicked = true;
+                countLettersPicked++;
+                displayLetterChoice(lettersPicked, countLettersPicked);
+            }
+            if(x > 290 && x < 450 && y < 180)
+            {
+                lettersPicked.add(countLettersPicked, topLetter);
+                topLetterPicked = true;
+                countLettersPicked++;
+                displayLetterChoice(lettersPicked, countLettersPicked);
+            }
+//        }
     }
 
     private void displayLetterChoice(List<String> lettersPicked, int countLettersPicked) {
@@ -133,33 +125,28 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         if(countLettersPicked == 1)
         {
             firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
+            firstLetterPicked.setVisibility(View.VISIBLE);
             firstLetterPicked.setText(lettersPicked.get(0));
         }
         if(countLettersPicked == 2)
         {
             secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
+            secondLetterPicked.setVisibility(View.VISIBLE);
             secondLetterPicked.setText(lettersPicked.get(1));
         }
     }
 
-    private void checkForMatch() {\
+    private void checkForMatch() {
+
     }
 
     private void clearSelectedLetters() {
+        firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
+        firstLetterPicked.setVisibility(View.GONE);
 
+        secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
+        secondLetterPicked.setVisibility(View.GONE);
     }
-
-
-//    private void displayLetterPicker(List<String> lettersPicked) {
-//        firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
-//        firstLetterPicked.setText(lettersPicked.get(0));
-//
-//        if (lettersPicked.size() > 1)
-//        {
-//            secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
-//            secondLetterPicked.setText(lettersPicked.get(1));
-//        }
-//    }
 
 
 }
