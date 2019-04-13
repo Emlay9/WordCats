@@ -11,7 +11,7 @@
         style="@style/letter"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="40dp"/>
 
     <TextView
         android:id="@+id/L_in_ELF"
@@ -92,36 +92,31 @@
             android:id="@+id/first_letter_picked"
             style="@style/chosenLetter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/second_letter_picked"
             style="@style/chosenLetter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/third_letter_picked"
             style="@style/chosenLetter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/fourth_letter_picked"
             style="@style/chosenLetter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary" />
+            android:layout_height="wrap_content" />
 
         <TextView
             android:id="@+id/fifth_letter_picked"
             style="@style/chosenLetter"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary" />
+            android:layout_height="wrap_content" />
 
         <Space
             android:layout_width="0dp"

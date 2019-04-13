@@ -1,34 +1,29 @@
 package com.example.emily.wordswipe;
 
 import android.os.Looper;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Timer;
-import java.util.TimerTask;
 
 import android.os.Handler;
 
-import java.util.logging.LogRecord;
 
 // OnTouchListener implemented to register touch events (in this case the swiping) on the
 // custom View (the swipe circle where you pick words)
 
 public class LevelActivity extends AppCompatActivity implements View.OnTouchListener {
 
-    //    TextView topLetter;
-//    TextView topLeftLetter;
-//    TextView topRightLetter;
-//    TextView bottomLeftLetter;
-//    TextView bottomRightLetter;
+
     TextView swipeCircle;
+    const int wordsIntheLevel = 5;
 
     Boolean topLetterPicked = false;
     Boolean topLeftLetterPicked = false;
@@ -44,28 +39,19 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     TextView fifthLetterPicked;
 
     int countLettersPicked = 0;
+    int countWordsFound = 0;
     List<String> lettersPicked = new ArrayList<>();
+
+    String[] words = new String[]{"ELF", "SHE", "SELF", "FLESH", "SHELF"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
         countLettersPicked = 0;
-        // All the TextViews for the letters that you can swipe to make words with
-//        topLetter = (TextView)findViewById(R.id.top_letter_choice);
-//        topLeftLetter = (TextView)findViewById(R.id.left_top_letter_choice);
-//        topRightLetter = (TextView)findViewById(R.id.right_top_letter_choice);
-//        bottomLeftLetter = (TextView)findViewById(R.id.left_bottom_letter_choice);
-//        bottomRightLetter = (TextView)findViewById(R.id.right_bottom_letter_choice);
+
         swipeCircle = (TextView) findViewById(R.id.letter_choice_circle);
         swipeCircle.setOnTouchListener(this);
-
-
-//        Set on touch listener for all of the swipeable letter textviews
-//        topLetter.setOnTouchListener(this);
-//        topLeftLetter.setOnTouchListener(this);
-//        topRightLetter.setOnTouchListener(this);
-//        bottomLeftLetter.setOnTouchListener(this);
     }
 
     /***** onTouch(View v, MotionEvent event) info *****/
@@ -78,7 +64,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
      */
     @Override
     public boolean onTouch(View view, MotionEvent event) {
-
+        resetBackgroundColor();
         if (view.getId() == R.id.letter_choice_circle) {
             switch (event.getAction()) {
 //                 ACTION_MOVE means when your finger is dragging across the screen
@@ -91,37 +77,63 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 //                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
 
                     //Only allow up to 5 letters picked
-                    getLettersPicked(x, y, countLettersPicked);
+                    getLettersPicked(x, y);
                     break;
                 }
 //                ACTION_UP means when you stop touching the screen
-//                 when this happens we want to check if the swiped word is a match
-//                  and clear the word selection that pops up as you swipe
+//                 - When this happens we want to check if the swiped word is a match
+//                   and clear the word selection that pops up as you swipe
                 case MotionEvent.ACTION_UP: {
                     checkForMatch();
                     clearSelectedLetters();
 //                    Reset the variables
                     countLettersPicked = 0;
+                    lettersPicked.clear();
                     topLetterPicked = false;
                     topLeftLetterPicked = false;
                     bottomLeftLetterPicked = false;
                     bottomRightLetterPicked = false;
                     topRightLetterPicked = false;
+                    checkforWin();
                 }
             }
         }
         return true;
     }
 
-    private int getLettersPicked(float x, float y, int countLettersPicked) {
+    private void checkforWin() {
+        if(countWordsFound == wordsIntheLevel)
+        {
+            
+        }
+    }
+
+    private void resetBackgroundColor() {
+        firstLetterPicked = (TextView) findViewById(R.id.first_letter_picked);
+        firstLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLettersBackground));
+
+        secondLetterPicked = (TextView) findViewById(R.id.second_letter_picked);
+        secondLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLettersBackground));
+
+        thirdLetterPicked = (TextView) findViewById(R.id.third_letter_picked);
+        thirdLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLettersBackground));
+
+        fourthLetterPicked = (TextView) findViewById(R.id.fourth_letter_picked);
+        fourthLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLettersBackground));
+
+        fifthLetterPicked = (TextView) findViewById(R.id.fifth_letter_picked);
+        fifthLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLettersBackground));
+    }
+
+    private int getLettersPicked(float x, float y) {
         String topLetter = "E";
         String topLeftLetter = "S";
         String bottomLeftLetter = "L";
         String bottomRightLetter = "F";
         String topRightLetter = "H";
 
-        if(countLettersPicked <=5)
-        {
+        if (countLettersPicked <= 5) {
+            // coordinate areas on the circle corresponding to where the 5 letters are
             if (x < 135 && y < 365 && y > 230 && !topLeftLetterPicked) {
                 lettersPicked.add(countLettersPicked, topLeftLetter);
                 topLeftLetterPicked = true;
@@ -153,8 +165,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
         }
-        // coordinate areas on the circle corresponding to where the 5 letters are
-
         return countLettersPicked;
     }
 
@@ -195,7 +205,67 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     private void checkForMatch() {
+        //Convert List of chosen letters to a String
+        StringBuilder sb = new StringBuilder();
+        for (String letters : lettersPicked) {
+            sb.append(letters);
+        }
+        String pickedWord = sb.toString();
 
+        //first check if the picked word is one of the level words
+        if (Arrays.asList(words).contains(pickedWord)) {
+            if (pickedWord.equals(words[0])) {
+                int[] ids = new int[]{R.id.E_in_ELF, R.id.L_in_ELF, R.id.F_in_ELF};
+                setWord(lettersPicked, ids);
+            }
+            if (pickedWord.equals(words[1])) {
+                int[] ids = new int[]{R.id.S_in_SHE, R.id.H_in_SHE, R.id.E_in_SHE};
+                setWord(lettersPicked, ids);
+            }
+            if (pickedWord.equals(words[2])) {
+                int[] ids = new int[]{R.id.S_in_SELF, R.id.E_in_SELF, R.id.L_in_SELF, R.id.F_in_SELF};
+                setWord(lettersPicked, ids);
+            }
+            if (pickedWord.equals(words[3])) {
+                int[] ids = new int[]{R.id.F_in_FLESH, R.id.L_in_FLESH, R.id.E_in_FLESH, R.id.S_in_FLESH, R.id.H_in_FLESH};
+                setWord(lettersPicked, ids);
+            }
+            if (pickedWord.equals(words[4])) {
+                int[] ids = new int[]{R.id.S_in_SHELF, R.id.H_in_SHELF, R.id.E_in_SHELF, R.id.L_in_SHELF, R.id.F_in_SHELF};
+                setWord(lettersPicked, ids);
+            }
+        }
+        else //give the user some feedback that they didn't find a word
+        {
+            setBackgroundColor();
+        }
+    }
+
+    private void setBackgroundColor() {
+        firstLetterPicked = (TextView) findViewById(R.id.first_letter_picked);
+        firstLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterNotAWordBg));
+
+        secondLetterPicked = (TextView) findViewById(R.id.second_letter_picked);
+        secondLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterNotAWordBg));
+
+        thirdLetterPicked = (TextView) findViewById(R.id.third_letter_picked);
+        thirdLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterNotAWordBg));
+
+        fourthLetterPicked = (TextView) findViewById(R.id.fourth_letter_picked);
+        fourthLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterNotAWordBg));
+
+        fifthLetterPicked = (TextView) findViewById(R.id.fifth_letter_picked);
+        fifthLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterNotAWordBg));
+    }
+
+    public void setWord(List<String> pickedLetters, int[] ids) {
+        int i = 0;
+        while (i < pickedLetters.size()) {
+            TextView letterTV = (TextView) findViewById(ids[i]);
+            letterTV.setText(pickedLetters.get(i));
+            i++;
+        }
+        countWordsFound++;
     }
 
 
