@@ -50,7 +50,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level);
         countLettersPicked = 0;
-        // All the textviews for the letters that you can swipe to make words with
+        // All the TextViews for the letters that you can swipe to make words with
 //        topLetter = (TextView)findViewById(R.id.top_letter_choice);
 //        topLeftLetter = (TextView)findViewById(R.id.left_top_letter_choice);
 //        topRightLetter = (TextView)findViewById(R.id.right_top_letter_choice);
@@ -60,7 +60,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         swipeCircle.setOnTouchListener(this);
 
 
-        //Set on touch listener for all of the swipeable letter textviews
+//        Set on touch listener for all of the swipeable letter textviews
 //        topLetter.setOnTouchListener(this);
 //        topLeftLetter.setOnTouchListener(this);
 //        topRightLetter.setOnTouchListener(this);
@@ -78,31 +78,36 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     @Override
     public boolean onTouch(View view, MotionEvent event) {
 
-
         if (view.getId() == R.id.letter_choice_circle) {
             switch (event.getAction()) {
-                // ACTION_MOVE means when your finger is dragging across the screen
-                // During this time we want to give feedback to the user to show what letters they're selecting
+//                 ACTION_MOVE means when your finger is dragging across the screen
+//                 During this time we want to give feedback to the user to show what letters they're selecting
                 case MotionEvent.ACTION_MOVE: {
-                    //get the coordinates of where on the circle is being touched
+//                   Get the coordinates of where on the circle is being touched
                     float x = event.getX();
                     float y = event.getY();
-                    // Uncomment the following line of code for demo of how to see the coordinates on the circle
-                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
-                    if (countLettersPicked <= 2) {
+//                    Uncomment the following line of code for a demo of how to see the coordinates on the circle
+//                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
+
+                    //Only allow up to 5 letters picked
+                    if (countLettersPicked <= 5) {
                         countLettersPicked = getLettersPicked(x, y, countLettersPicked);
                     }
                     break;
                 }
 //                ACTION_UP means when you stop touching the screen
-//                 when this happens we want to check if the swiped word is a match and clear the word selection that pops up as you swipe
+//                 when this happens we want to check if the swiped word is a match
+//                  and clear the word selection that pops up as you swipe
                 case MotionEvent.ACTION_UP: {
                     checkForMatch();
                     clearSelectedLetters();
+//                    Reset the variables
                     countLettersPicked = 0;
                     topLetterPicked = false;
                     topLeftLetterPicked = false;
                     bottomLeftLetterPicked = false;
+                    bottomRightLetterPicked = false;
+                    topRightLetterPicked = false;
                 }
             }
         }
@@ -117,32 +122,41 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         String topRightLetter = "H";
 
             // coordinate areas on the circle corresponding to where the 5 letters are
-            if(x < 135 && y < 365 && y > 230 && topLeftLetterPicked == false)
+            if(x < 135 && y < 365 && y > 230 && !topLeftLetterPicked)
             {
                 lettersPicked.add(countLettersPicked, topLeftLetter);
                 topLeftLetterPicked = true;
                 countLettersPicked++;
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
-            if(x > 290 && x < 450 && y < 180 && topLetterPicked == false)
+            if(x > 290 && x < 450 && y < 180 && !topLetterPicked)
             {
                 lettersPicked.add(countLettersPicked, topLetter);
                 topLetterPicked = true;
                 countLettersPicked++;
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
-            if(x > 175 && x < 250 && y > 555)
+            if(x > 175 && x < 250 && y > 555 && !bottomLeftLetterPicked)
             {
                 lettersPicked.add(countLettersPicked, bottomLeftLetter);
                 bottomLeftLetterPicked = true;
+                countLettersPicked++;
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
-            if(x > 530 && x < 650 && y > 535)
+            if(x > 530 && x < 650 && y > 535 && !bottomRightLetterPicked)
             {
-
+                lettersPicked.add(countLettersPicked, bottomRightLetter);
+                bottomRightLetterPicked = true;
+                countLettersPicked++;
+                displayLetterChoice(lettersPicked, countLettersPicked);
             }
-
-
+            if(x > 595 && y > 260 && y < 390 && !topRightLetterPicked)
+            {
+                lettersPicked.add(countLettersPicked, topRightLetter);
+                topRightLetterPicked = true;
+                countLettersPicked++;
+                displayLetterChoice(lettersPicked, countLettersPicked);
+            }
         return countLettersPicked;
     }
 
@@ -172,12 +186,16 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
             }
             case 4:
             {
-
+                fourthLetterPicked = (TextView)findViewById(R.id.fourth_letter_picked);
+                fourthLetterPicked.setVisibility(View.VISIBLE);
+                fourthLetterPicked.setText(lettersPicked.get(3));
                 break;
             }
             case 5:
             {
-
+                fifthLetterPicked = (TextView)findViewById(R.id.fifth_letter_picked);
+                fifthLetterPicked.setVisibility(View.VISIBLE);
+                fifthLetterPicked.setText(lettersPicked.get(4));
                 break;
             }
         }
@@ -188,25 +206,27 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     }
 
 
-
+    // make the letters above the circle that were chosen disappear after 0.5 seconds
     private void clearSelectedLetters() {
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
                 firstLetterPicked = (TextView)findViewById(R.id.first_letter_picked);
-                firstLetterPicked.setVisibility(View.INVISIBLE);
+                firstLetterPicked.setVisibility(View.GONE);
 
                 secondLetterPicked = (TextView)findViewById(R.id.second_letter_picked);
-                secondLetterPicked.setVisibility(View.INVISIBLE);
+                secondLetterPicked.setVisibility(View.GONE);
+
+                thirdLetterPicked = (TextView)findViewById(R.id.third_letter_picked);
+                thirdLetterPicked.setVisibility(View.GONE);
+
+                fourthLetterPicked = (TextView)findViewById(R.id.fourth_letter_picked);
+                fourthLetterPicked.setVisibility(View.GONE);
+
+                fifthLetterPicked = (TextView)findViewById(R.id.fifth_letter_picked);
+                fifthLetterPicked.setVisibility(View.GONE);
             }
         }, 500);
-
-//        new Timer().schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//
-//            }
-//        }, 2000);
 
     }
 }

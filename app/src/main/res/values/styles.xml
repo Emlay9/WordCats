@@ -8,10 +8,41 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-
-    <style name="generalnotitle">
-        <item name="android:windowNoTitle">true</item>
+    <style name="chosenLetter" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:paddingLeft">5dp</item>
+        <item name="android:paddingRight">5dp</item>
     </style>
 
+    <style name="letter" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:layout_width">35dp</item>
+        <item name="android:layout_height">35dp</item>
+        <item name="android:layout_marginBottom">30dp</item>
+        <item name="android:layout_marginRight">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:background">@drawable/letter_background_shape</item>
+    </style>
+
+    <style name="circle_letters" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textSize">40sp</item>
+        <item name="android:layout_width">45dp</item>
+        <item name="android:layout_height">45dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!--android:layout_marginBottom="30dp"-->
+    <!--android:layout_marginLeft="20dp"-->
+    <!--android:layout_marginRight="3dp"-->
 
 </resources>
