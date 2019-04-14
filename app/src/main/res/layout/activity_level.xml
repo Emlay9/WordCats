@@ -202,7 +202,7 @@
         style="@style/circle_letters"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="350dp"
-        android:text="e" />
+        android:text="@string/letter_E" />
 
     <TextView
         android:id="@+id/left_top_letter_choice"
@@ -212,7 +212,7 @@
         android:layout_below="@+id/top_letter_choice"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="20dp"
-        android:text="s" />
+        android:text="@string/letter_F" />
 
     <TextView
         android:id="@+id/right_top_letter_choice"
@@ -221,7 +221,7 @@
         android:layout_marginLeft="115dp"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/left_top_letter_choice"
-        android:text="h" />
+        android:text="@string/letter_H" />
 
     <TextView
         android:id="@+id/left_bottom_letter_choice"
@@ -229,7 +229,7 @@
         android:layout_below="@+id/left_top_letter_choice"
         android:layout_marginLeft="135dp"
         android:layout_marginTop="40dp"
-        android:text="l" />
+        android:text="@string/letter_L" />
 
     <TextView
         android:id="@+id/right_bottom_letter_choice"
@@ -238,7 +238,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginTop="40dp"
         android:layout_toRightOf="@+id/left_bottom_letter_choice"
-        android:text="f" />
+        android:text="@string/letter_F" />
 
 
 </RelativeLayout>

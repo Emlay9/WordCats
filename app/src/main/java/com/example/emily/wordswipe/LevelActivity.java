@@ -1,5 +1,6 @@
 package com.example.emily.wordswipe;
 
+import android.content.Intent;
 import android.os.Looper;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -23,13 +24,19 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
 
     TextView swipeCircle;
-    const int wordsIntheLevel = 5;
+    static final int WORDSINTHELEVEL = 5;
 
     Boolean topLetterPicked = false;
     Boolean topLeftLetterPicked = false;
     Boolean bottomLeftLetterPicked = false;
     Boolean topRightLetterPicked = false;
     Boolean bottomRightLetterPicked = false;
+
+    Boolean firstWordFound = false;
+    Boolean secondWordFound = false;
+    Boolean thirdWordFound = false;
+    Boolean fourthWordFound = false;
+    Boolean fifthWordFound = false;
 
     //TextViews of the letters picked that shows up above the circle
     TextView firstLetterPicked;
@@ -55,7 +62,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     /***** onTouch(View v, MotionEvent event) info *****/
-    /* - This method needs to be added when we implement View.OnTouchListener
+    /* - The following method needs to be added when we implement View.OnTouchListener
        - It's similar to the onClick() method for buttons
      It's parameters are:
             - the View v being touched and
@@ -74,7 +81,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                     float x = event.getX();
                     float y = event.getY();
 //                    Uncomment the following line of code for a demo of how to see the coordinates on the circle
-//                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
 
                     //Only allow up to 5 letters picked
                     getLettersPicked(x, y);
@@ -102,9 +109,10 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     private void checkforWin() {
-        if(countWordsFound == wordsIntheLevel)
+        if(countWordsFound == WORDSINTHELEVEL)
         {
-            
+            Intent levelComplete = new Intent(this, LevelWonActivity.class);
+            startActivity(levelComplete);
         }
     }
 
@@ -134,7 +142,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
         if (countLettersPicked <= 5) {
             // coordinate areas on the circle corresponding to where the 5 letters are
-            if (x < 135 && y < 365 && y > 230 && !topLeftLetterPicked) {
+            if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
                 lettersPicked.add(countLettersPicked, topLeftLetter);
                 topLeftLetterPicked = true;
                 countLettersPicked++;
@@ -214,34 +222,62 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
         //first check if the picked word is one of the level words
         if (Arrays.asList(words).contains(pickedWord)) {
-            if (pickedWord.equals(words[0])) {
+            //change the background color of the popup letters to green to indicate word was found
+            if (pickedWord.equals(words[0]) && !firstWordFound) {
                 int[] ids = new int[]{R.id.E_in_ELF, R.id.L_in_ELF, R.id.F_in_ELF};
                 setWord(lettersPicked, ids);
+                firstWordFound = true;
+                setBackgroundColorWordFound();
             }
-            if (pickedWord.equals(words[1])) {
+            if (pickedWord.equals(words[1]) && !secondWordFound) {
                 int[] ids = new int[]{R.id.S_in_SHE, R.id.H_in_SHE, R.id.E_in_SHE};
                 setWord(lettersPicked, ids);
+                secondWordFound = true;
+                setBackgroundColorWordFound();
             }
-            if (pickedWord.equals(words[2])) {
+            if (pickedWord.equals(words[2]) && !thirdWordFound) {
                 int[] ids = new int[]{R.id.S_in_SELF, R.id.E_in_SELF, R.id.L_in_SELF, R.id.F_in_SELF};
                 setWord(lettersPicked, ids);
+                thirdWordFound = true;
+                setBackgroundColorWordFound();
             }
-            if (pickedWord.equals(words[3])) {
+            if (pickedWord.equals(words[3]) && !fourthWordFound) {
                 int[] ids = new int[]{R.id.F_in_FLESH, R.id.L_in_FLESH, R.id.E_in_FLESH, R.id.S_in_FLESH, R.id.H_in_FLESH};
                 setWord(lettersPicked, ids);
+                fourthWordFound = true;
+                setBackgroundColorWordFound();
             }
-            if (pickedWord.equals(words[4])) {
+            if (pickedWord.equals(words[4]) && !fifthWordFound) {
                 int[] ids = new int[]{R.id.S_in_SHELF, R.id.H_in_SHELF, R.id.E_in_SHELF, R.id.L_in_SHELF, R.id.F_in_SHELF};
                 setWord(lettersPicked, ids);
+                fifthWordFound = true;
+                setBackgroundColorWordFound();
             }
         }
         else //give the user some feedback that they didn't find a word
         {
-            setBackgroundColor();
+            setBackgroundColorWordNotFound();
         }
     }
 
-    private void setBackgroundColor() {
+    private void setBackgroundColorWordFound() {
+        firstLetterPicked = (TextView) findViewById(R.id.first_letter_picked);
+        firstLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterWordFoundBg));
+
+        secondLetterPicked = (TextView) findViewById(R.id.second_letter_picked);
+        secondLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterWordFoundBg));
+
+        thirdLetterPicked = (TextView) findViewById(R.id.third_letter_picked);
+        thirdLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterWordFoundBg));
+
+        fourthLetterPicked = (TextView) findViewById(R.id.fourth_letter_picked);
+        fourthLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterWordFoundBg));
+
+        fifthLetterPicked = (TextView) findViewById(R.id.fifth_letter_picked);
+        fifthLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterWordFoundBg));
+    }
+
+    private void setBackgroundColorWordNotFound() {
         firstLetterPicked = (TextView) findViewById(R.id.first_letter_picked);
         firstLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLetterNotAWordBg));
 

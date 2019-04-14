@@ -1,8 +1,15 @@
 <resources>
     <string name="app_name">Word Cats</string>
     <string name="play">Play</string>
+    <string name="return_to_menu">Main Menu</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+
+    <string name="letter_S">S</string>
+    <string name="letter_H">H</string>
+    <string name="letter_E">E</string>
+    <string name="letter_L">L</string>
+    <string name="letter_F">F</string>
 </resources>
