@@ -252,7 +252,7 @@
         android:layout_toRightOf="@+id/second_E_in_FEVER"
         android:background="@drawable/letter_background_shape" />
 
-    <TextView
+    <View
         android:id="@+id/letter_choice_circle"
         android:layout_width="220dp"
         android:layout_height="220dp"

@@ -15,7 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class LevelThreeActivity extends AppCompatActivity implements View.OnTouchListener{
-    TextView swipeCircle;
+
     private static final int WORDSINTHELEVEL = 5;
     private static final String topLetter = "E";
     private static final String topLeftLetter = "S";
@@ -35,6 +35,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
     Boolean fourthWordFound = false;
     Boolean fifthWordFound = false;
 
+    View swipeCircle;
     TextView firstLetterPicked;
     TextView secondLetterPicked;
     TextView thirdLetterPicked;
@@ -53,7 +54,7 @@ public class LevelThreeActivity extends AppCompatActivity implements View.OnTouc
         setContentView(R.layout.activity_level_three);
         countLettersPicked = 0;
 
-        swipeCircle = (TextView) findViewById(R.id.letter_choice_circle);
+        swipeCircle = findViewById(R.id.letter_choice_circle);
         swipeCircle.setOnTouchListener(this);
     }
 

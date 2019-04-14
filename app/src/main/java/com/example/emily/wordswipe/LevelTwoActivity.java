@@ -1,11 +1,14 @@
 package com.example.emily.wordswipe;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -43,7 +46,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     Boolean seventhWordFound = false;
     Boolean eighthWordFound = false;
 
-    TextView swipeCircle;
+    View swipeCircle;
     TextView firstLetterPicked;
     TextView secondLetterPicked;
     TextView thirdLetterPicked;
@@ -63,7 +66,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
         countLettersPicked = 0;
 
-        swipeCircle = (TextView) findViewById(R.id.letter_choice_circle);
+        swipeCircle = findViewById(R.id.letter_choice_circle);
         swipeCircle.setOnTouchListener(this);
     }
 
@@ -99,8 +102,9 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     private void checkForWin() {
         if(countWordsFound == WORDSINTHELEVEL)
         {
-            Intent levelComplete = new Intent(this, LevelWonActivity.class);
-            startActivity(levelComplete);
+            Intent intent = new Intent(this, LevelWonActivity.class);
+            intent.putExtra("level", 2);
+            startActivity(intent);
         }
     }
 
@@ -327,3 +331,4 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
     }
 }
+

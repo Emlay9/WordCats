@@ -21,7 +21,7 @@ import android.os.Handler;
 
 public class LevelActivity extends AppCompatActivity implements View.OnTouchListener {
 
-    TextView swipeCircle;
+    View swipeCircle;
     static final int WORDSINTHELEVEL = 5;
 
     //The letters in the circle
@@ -115,8 +115,9 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     private void checkForWin() {
         if(countWordsFound == WORDSINTHELEVEL)
         {
-            Intent levelComplete = new Intent(this, LevelWonActivity.class);
-            startActivity(levelComplete);
+            Intent intent = new Intent(this, LevelWonActivity.class);
+            intent.putExtra("level", 1);
+            startActivity(intent);
         }
     }
 

@@ -183,7 +183,7 @@
         android:layout_marginRight="2dp"
         android:layout_toRightOf="@+id/S_in_GUESS" />
 
-    <TextView
+    <View
         android:id="@+id/letter_choice_circle"
         android:layout_width="220dp"
         android:layout_height="220dp"
