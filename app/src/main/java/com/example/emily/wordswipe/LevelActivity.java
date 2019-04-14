@@ -18,7 +18,7 @@ import android.os.Handler;
 
 
 // OnTouchListener implemented to register touch events (in this case the swiping) on the
-// custom View (the swipe circle where you pick words)
+// the circle wheel where you pick words)
 
 public class LevelActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -101,14 +101,14 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                     bottomLeftLetterPicked = false;
                     bottomRightLetterPicked = false;
                     topRightLetterPicked = false;
-                    checkforWin();
+                    checkForWin();
                 }
             }
         }
         return true;
     }
 
-    private void checkforWin() {
+    private void checkForWin() {
         if(countWordsFound == WORDSINTHELEVEL)
         {
             Intent levelComplete = new Intent(this, LevelWonActivity.class);

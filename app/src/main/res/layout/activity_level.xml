@@ -193,9 +193,9 @@
         android:id="@+id/letter_choice_circle"
         android:layout_width="220dp"
         android:layout_height="220dp"
-        android:layout_centerHorizontal="true"
+        android:background="@drawable/circle_letter_bg"
         android:layout_marginTop="350dp"
-        android:background="@drawable/circle_letter_bg" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:id="@+id/top_letter_choice"
