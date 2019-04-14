@@ -4,83 +4,100 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/level_background"
-    tools:context="com.example.emily.wordswipe.LevelActivity">
+    tools:context="com.example.emily.wordswipe.LevelTwoActivity">
 
     <TextView
-        android:id="@+id/E_in_ELF"
+        android:id="@+id/E_in_EVE"
         style="@style/letter"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="40dp"/>
+        android:layout_marginTop="40dp" />
 
     <TextView
-        android:id="@+id/L_in_ELF"
+        android:id="@+id/V_in_EVE"
         style="@style/letter"
         android:layout_marginRight="2dp"
         android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/E_in_ELF" />
+        android:layout_toRightOf="@+id/E_in_EVE" />
 
     <TextView
-        android:id="@+id/F_in_ELF"
+        android:id="@+id/second_E_in_EVE"
         style="@style/letter"
         android:layout_marginRight="30dp"
         android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/L_in_ELF" />
+        android:layout_toRightOf="@+id/V_in_EVE" />
 
     <TextView
-        android:id="@+id/S_in_SHE"
+        android:id="@+id/F_in_FEE"
         style="@style/letter"
-        android:layout_below="@+id/E_in_ELF"
+        android:layout_below="@+id/E_in_EVE"
         android:layout_marginBottom="30dp"
         android:layout_marginLeft="20dp"
         android:background="@drawable/letter_background_shape" />
 
     <TextView
-        android:id="@+id/H_in_SHE"
+        android:id="@+id/E_in_FEE"
         style="@style/letter"
-        android:layout_below="@id/E_in_ELF"
+        android:layout_below="@id/E_in_EVE"
         android:layout_marginRight="2dp"
-        android:layout_toRightOf="@+id/S_in_SHE"
+        android:layout_toRightOf="@+id/F_in_FEE"
         android:background="@drawable/letter_background_shape"
         android:gravity="center" />
 
     <TextView
-        android:id="@+id/E_in_SHE"
+        android:id="@+id/second_E_in_FEE"
         style="@style/letter"
-        android:layout_below="@id/E_in_ELF"
+        android:layout_below="@id/E_in_EVE"
         android:layout_marginRight="2dp"
-        android:layout_toRightOf="@+id/H_in_SHE"
+        android:layout_toRightOf="@+id/E_in_FEE"
         android:background="@drawable/letter_background_shape" />
 
     <TextView
-        android:id="@+id/S_in_SELF"
+        android:id="@+id/R_in_REF"
         style="@style/letter"
-        android:layout_below="@+id/S_in_SHE"
+        android:layout_below="@+id/F_in_FEE"
         android:layout_marginLeft="20dp" />
 
     <TextView
-        android:id="@+id/E_in_SELF"
+        android:id="@+id/E_in_REF"
         style="@style/letter"
-        android:layout_below="@+id/S_in_SHE"
-        android:layout_toRightOf="@+id/S_in_SELF" />
+        android:layout_below="@+id/F_in_FEE"
+        android:layout_toRightOf="@+id/R_in_REF" />
 
     <TextView
-        android:id="@+id/L_in_SELF"
+        android:id="@+id/F_in_REF"
         style="@style/letter"
-        android:layout_below="@+id/S_in_SHE"
+        android:layout_below="@+id/F_in_FEE"
         android:layout_marginRight="2dp"
-        android:layout_toRightOf="@+id/E_in_SELF" />
+        android:layout_toRightOf="@+id/E_in_REF" />
 
     <TextView
-        android:id="@+id/F_in_SELF"
+        android:id="@+id/R_in_REV"
         style="@style/letter"
-        android:layout_below="@+id/S_in_SHE"
-        android:layout_toRightOf="@+id/L_in_SELF" />
+        android:layout_below="@+id/R_in_REF"
+        android:layout_marginRight="2dp"
+        android:layout_marginLeft="20dp"/>
+
+
+    <TextView
+        android:id="@+id/E_in_REV"
+        style="@style/letter"
+        android:layout_below="@+id/E_in_REF"
+        android:layout_toRightOf="@+id/R_in_REV" />
+
+    <TextView
+        android:id="@+id/V_in_REV"
+        style="@style/letter"
+        android:layout_below="@+id/F_in_REF"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/E_in_REF" />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="290dp"
+        android:layout_marginTop="300dp"
         android:orientation="horizontal">
 
         <Space
@@ -125,69 +142,115 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/F_in_FLESH"
+        android:id="@+id/E_in_EVER"
         style="@style/letter"
         android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/F_in_ELF" />
+        android:layout_toRightOf="@+id/second_E_in_EVE" />
 
     <TextView
-        android:id="@+id/L_in_FLESH"
+        android:id="@+id/V_in_EVER"
         style="@style/letter"
         android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/F_in_FLESH" />
+        android:layout_toRightOf="@+id/E_in_EVER" />
 
     <TextView
-        android:id="@+id/E_in_FLESH"
+        android:id="@+id/second_E_in_EVER"
         style="@style/letter"
         android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/L_in_FLESH" />
+        android:layout_toRightOf="@+id/V_in_EVER" />
 
     <TextView
-        android:id="@+id/S_in_FLESH"
+        android:id="@+id/R_in_EVER"
         style="@style/letter"
         android:layout_marginRight="2dp"
         android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/E_in_FLESH" />
+        android:layout_toRightOf="@+id/second_E_in_EVER" />
 
     <TextView
-        android:id="@+id/H_in_FLESH"
+        android:id="@+id/F_in_FREE"
         style="@style/letter"
+        android:layout_below="@+id/E_in_EVE"
+        android:layout_toRightOf="@+id/second_E_in_EVE" />
+
+    <TextView
+        android:id="@+id/R_in_FREE"
+        style="@style/letter"
+        android:layout_below="@+id/E_in_EVE"
+        android:layout_toRightOf="@+id/E_in_EVER" />
+
+    <TextView
+        android:id="@+id/E_in_FREE"
+        style="@style/letter"
+        android:layout_below="@+id/E_in_EVE"
+        android:layout_toRightOf="@+id/V_in_EVER" />
+
+    <TextView
+        android:id="@+id/second_E_in_FREE"
+        style="@style/letter"
+        android:layout_below="@+id/E_in_EVE"
         android:layout_marginRight="2dp"
-        android:layout_marginTop="40dp"
-        android:layout_toRightOf="@+id/S_in_FLESH" />
-
-    <TextView
-        android:id="@+id/S_in_SHELF"
-        style="@style/letter"
-        android:layout_below="@+id/E_in_ELF"
-        android:layout_toRightOf="@+id/F_in_ELF" />
-
-    <TextView
-        android:id="@+id/H_in_SHELF"
-        style="@style/letter"
-        android:layout_below="@+id/E_in_ELF"
-        android:layout_toRightOf="@+id/F_in_FLESH" />
-
-    <TextView
-        android:id="@+id/E_in_SHELF"
-        style="@style/letter"
-        android:layout_below="@+id/E_in_ELF"
-        android:layout_toRightOf="@+id/L_in_FLESH" />
-
-    <TextView
-        android:id="@+id/L_in_SHELF"
-        style="@style/letter"
-        android:layout_below="@+id/E_in_ELF"
-        android:layout_marginRight="2dp"
-        android:layout_toRightOf="@+id/E_in_FLESH"
+        android:layout_toRightOf="@+id/second_E_in_EVER"
         android:background="@drawable/letter_background_shape" />
 
     <TextView
-        android:id="@+id/F_in_SHELF"
+        android:id="@+id/R_in_REEF"
         style="@style/letter"
-        android:layout_below="@+id/E_in_ELF"
+        android:layout_below="@+id/F_in_FREE"
+        android:layout_toRightOf="@+id/second_E_in_EVE" />
+
+    <TextView
+        android:id="@+id/E_in_REEF"
+        style="@style/letter"
+        android:layout_below="@+id/R_in_FREE"
+        android:layout_toRightOf="@+id/E_in_EVER" />
+
+    <TextView
+        android:id="@+id/second_E_in_REEF"
+        style="@style/letter"
+        android:layout_below="@+id/E_in_FREE"
+        android:layout_toRightOf="@+id/V_in_EVER" />
+
+    <TextView
+        android:id="@+id/F_in_REEF"
+        style="@style/letter"
+        android:layout_below="@+id/second_E_in_FREE"
         android:layout_marginRight="2dp"
-        android:layout_toRightOf="@+id/L_in_SHELF" />
+        android:layout_toRightOf="@+id/second_E_in_EVER"
+        android:background="@drawable/letter_background_shape" />
+
+    <TextView
+        android:id="@+id/F_in_FEVER"
+        style="@style/letter"
+        android:layout_below="@+id/R_in_REEF"
+        android:layout_toRightOf="@+id/second_E_in_EVE" />
+
+    <TextView
+        android:id="@+id/E_in_FEVER"
+        style="@style/letter"
+        android:layout_below="@+id/E_in_REEF"
+        android:layout_toRightOf="@+id/F_in_FEVER" />
+
+    <TextView
+        android:id="@+id/V_in_FEVER"
+        style="@style/letter"
+        android:layout_below="@+id/second_E_in_REEF"
+        android:layout_toRightOf="@+id/E_in_FEVER" />
+
+    <TextView
+        android:id="@+id/second_E_in_FEVER"
+        style="@style/letter"
+        android:layout_below="@+id/F_in_REEF"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/V_in_FEVER"
+        android:background="@drawable/letter_background_shape" />
+
+    <TextView
+        android:id="@+id/R_in_FEVER"
+        style="@style/letter"
+        android:layout_below="@+id/F_in_REEF"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/second_E_in_FEVER"
+        android:background="@drawable/letter_background_shape" />
 
     <TextView
         android:id="@+id/letter_choice_circle"
@@ -209,7 +272,7 @@
         style="@style/circle_letters"
         android:layout_width="45dp"
         android:layout_height="45dp"
-        android:text="@string/letter_S"
+        android:text="@string/letter_V"
         android:layout_alignBaseline="@+id/right_top_letter_choice"
         android:layout_alignBottom="@+id/right_top_letter_choice"
         android:layout_alignLeft="@+id/letter_choice_circle"
@@ -222,7 +285,7 @@
         android:layout_marginLeft="115dp"
         android:layout_marginTop="20dp"
         android:layout_toRightOf="@+id/left_top_letter_choice"
-        android:text="@string/letter_H" />
+        android:text="@string/letter_E" />
 
     <TextView
         android:id="@+id/left_bottom_letter_choice"
@@ -230,7 +293,7 @@
         android:layout_below="@+id/left_top_letter_choice"
         android:layout_marginLeft="135dp"
         android:layout_marginTop="40dp"
-        android:text="@string/letter_L" />
+        android:text="@string/letter_R" />
 
     <TextView
         android:id="@+id/right_bottom_letter_choice"

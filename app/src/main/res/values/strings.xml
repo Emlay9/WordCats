@@ -2,6 +2,7 @@
     <string name="app_name">Word Cats</string>
     <string name="play">Play</string>
     <string name="return_to_menu">Main Menu</string>
+    <string name="next_level">Next Level</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
     <string name="dummy_button">Dummy Button</string>
@@ -12,4 +13,6 @@
     <string name="letter_E">E</string>
     <string name="letter_L">L</string>
     <string name="letter_F">F</string>
+    <string name="letter_R">R</string>
+    <string name="letter_V">V</string>
 </resources>

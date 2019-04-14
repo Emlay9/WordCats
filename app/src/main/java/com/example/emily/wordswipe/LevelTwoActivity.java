@@ -1,6 +1,7 @@
 package com.example.emily.wordswipe;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,17 +14,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import android.os.Handler;
-
-
-// OnTouchListener implemented to register touch events (in this case the swiping) on the
-// the circle wheel where you pick words)
-
-public class LevelActivity extends AppCompatActivity implements View.OnTouchListener {
-
+public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchListener{
 
     TextView swipeCircle;
-    static final int WORDSINTHELEVEL = 5;
+    static final int WORDSINTHELEVEL = 8;
 
     Boolean topLetterPicked = false;
     Boolean topLeftLetterPicked = false;
@@ -36,8 +30,10 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     Boolean thirdWordFound = false;
     Boolean fourthWordFound = false;
     Boolean fifthWordFound = false;
+    Boolean sixthWordFound = false;
+    Boolean seventhWordFound = false;
+    Boolean eighthWordFound = false;
 
-    //TextViews of the letters picked that shows up above the circle
     TextView firstLetterPicked;
     TextView secondLetterPicked;
     TextView thirdLetterPicked;
@@ -48,50 +44,34 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     int countWordsFound = 0;
     List<String> lettersPicked = new ArrayList<>();
 
-    String[] words = new String[]{"ELF", "SHE", "SELF", "FLESH", "SHELF"};
+    String[] words = new String[]{"EVE", "FEE", "REF", "REV", "EVER", "FREE", "REEF", "FEVER"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level);
+        setContentView(R.layout.activity_level_two);
+
         countLettersPicked = 0;
 
         swipeCircle = (TextView) findViewById(R.id.letter_choice_circle);
         swipeCircle.setOnTouchListener(this);
     }
 
-    /***** onTouch(View v, MotionEvent event) info *****/
-    /* - The following method needs to be added when we implement View.OnTouchListener
-       - It's similar to the onClick() method for buttons
-     It's parameters are:
-            - the View v being touched and
-            - MotionEvent event gives information about the touch on that view (example: coordinates
-            of where its being pressed, if it's moving, where it stops etc etc...)
-     */
     @Override
     public boolean onTouch(View view, MotionEvent event) {
         resetBackgroundColor();
         if (view.getId() == R.id.letter_choice_circle) {
             switch (event.getAction()) {
-//                 ACTION_MOVE means when your finger is dragging across the screen
-//                 During this time we want to give feedback to the user to show what letters they're selecting
                 case MotionEvent.ACTION_MOVE: {
-//                   Get the coordinates of where on the circle is being touched
                     float x = event.getX();
                     float y = event.getY();
-//                    Uncomment the following line of code for a demo of how to see the coordinates on the circle
-//                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
-
+                    //Only allow up to 5 letters picked
                     getLettersPicked(x, y);
                     break;
                 }
-//                ACTION_UP means when you stop touching the screen
-//                 - When this happens we want to check if the swiped word is a match
-//                   and clear the word selection that pops up as you swipe
                 case MotionEvent.ACTION_UP: {
                     checkForMatch();
                     clearSelectedLetters();
-//                    Reset the variables
                     countLettersPicked = 0;
                     lettersPicked.clear();
                     topLetterPicked = false;
@@ -133,14 +113,12 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
     private int getLettersPicked(float x, float y) {
         String topLetter = "E";
-        String topLeftLetter = "S";
-        String bottomLeftLetter = "L";
+        String topLeftLetter = "V";
+        String bottomLeftLetter = "R";
         String bottomRightLetter = "F";
-        String topRightLetter = "H";
+        String topRightLetter = "E";
 
-        //Only allow up to 5 letters picked
         if (countLettersPicked <= 5) {
-            // coordinate areas on the circle corresponding to where the 5 letters are
             if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
                 lettersPicked.add(countLettersPicked, topLeftLetter);
                 topLeftLetterPicked = true;
@@ -212,44 +190,60 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     private void checkForMatch() {
-        //Convert List of chosen letters to a String
         StringBuilder sb = new StringBuilder();
         for (String letters : lettersPicked) {
             sb.append(letters);
         }
         String pickedWord = sb.toString();
 
-        //first check if the picked word is one of the level words
         if (Arrays.asList(words).contains(pickedWord)) {
+            //change the background color of the popup letters to green to indicate word was found
             if (pickedWord.equals(words[0]) && !firstWordFound) {
-                int[] ids = new int[]{R.id.E_in_ELF, R.id.L_in_ELF, R.id.F_in_ELF};
+                int[] ids = new int[]{R.id.E_in_EVE, R.id.V_in_EVE, R.id.second_E_in_EVE};
                 setWord(lettersPicked, ids);
                 firstWordFound = true;
-                //change the background color of the popup letters to green to indicate word was found
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[1]) && !secondWordFound) {
-                int[] ids = new int[]{R.id.S_in_SHE, R.id.H_in_SHE, R.id.E_in_SHE};
+                int[] ids = new int[]{R.id.F_in_FEE, R.id.E_in_FEE, R.id.second_E_in_FEE};
                 setWord(lettersPicked, ids);
                 secondWordFound = true;
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[2]) && !thirdWordFound) {
-                int[] ids = new int[]{R.id.S_in_SELF, R.id.E_in_SELF, R.id.L_in_SELF, R.id.F_in_SELF};
+                int[] ids = new int[]{R.id.R_in_REF, R.id.E_in_REF, R.id.F_in_REF};
                 setWord(lettersPicked, ids);
                 thirdWordFound = true;
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[3]) && !fourthWordFound) {
-                int[] ids = new int[]{R.id.F_in_FLESH, R.id.L_in_FLESH, R.id.E_in_FLESH, R.id.S_in_FLESH, R.id.H_in_FLESH};
+                int[] ids = new int[]{R.id.R_in_REV, R.id.E_in_REV, R.id.V_in_REV};
                 setWord(lettersPicked, ids);
                 fourthWordFound = true;
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[4]) && !fifthWordFound) {
-                int[] ids = new int[]{R.id.S_in_SHELF, R.id.H_in_SHELF, R.id.E_in_SHELF, R.id.L_in_SHELF, R.id.F_in_SHELF};
+                int[] ids = new int[]{R.id.E_in_EVER, R.id.V_in_EVER, R.id.second_E_in_EVER, R.id.R_in_EVER};
                 setWord(lettersPicked, ids);
                 fifthWordFound = true;
+                setBackgroundColorWordFound();
+            }
+            if (pickedWord.equals(words[5]) && !sixthWordFound) {
+                int[] ids = new int[]{R.id.F_in_FREE, R.id.R_in_FREE, R.id.E_in_FREE, R.id.second_E_in_FREE};
+                setWord(lettersPicked, ids);
+                sixthWordFound = true;
+                setBackgroundColorWordFound();
+            }
+            if (pickedWord.equals(words[6]) && !seventhWordFound) {
+                int[] ids = new int[]{R.id.R_in_REEF, R.id.E_in_REEF, R.id.second_E_in_REEF, R.id.F_in_REEF};
+                setWord(lettersPicked, ids);
+                seventhWordFound = true;
+                setBackgroundColorWordFound();
+            }
+            if (pickedWord.equals(words[7]) && !eighthWordFound) {
+                int[] ids = new int[]{R.id.F_in_FEVER, R.id.E_in_FEVER, R.id.V_in_FEVER, R.id.second_E_in_FEVER, R.id.R_in_FEVER};
+                setWord(lettersPicked, ids);
+                eighthWordFound = true;
                 setBackgroundColorWordFound();
             }
         }
