@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/level_background"
+    tools:context="com.example.emily.wordswipe.LevelThreeActivity">
+
+    <TextView
+        android:id="@+id/S_in_SUE"
+        style="@style/letter"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/U_in_SUE"
+        style="@style/letter"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/S_in_SUE" />
+
+    <TextView
+        android:id="@+id/E_in_SUE"
+        style="@style/letter"
+        android:layout_marginRight="30dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/U_in_SUE" />
+
+    <TextView
+        android:id="@+id/U_in_USE"
+        style="@style/letter"
+        android:layout_below="@+id/S_in_SUE"
+        android:layout_marginBottom="30dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/letter_background_shape" />
+
+    <TextView
+        android:id="@+id/S_in_USE"
+        style="@style/letter"
+        android:layout_below="@id/S_in_SUE"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/U_in_USE"
+        android:background="@drawable/letter_background_shape"
+        android:gravity="center" />
+
+    <TextView
+        android:id="@+id/E_in_USE"
+        style="@style/letter"
+        android:layout_below="@id/S_in_SUE"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/S_in_USE"
+        android:background="@drawable/letter_background_shape" />
+
+    <TextView
+        android:id="@+id/S_in_SUES"
+        style="@style/letter"
+        android:layout_below="@+id/U_in_USE"
+        android:layout_marginLeft="20dp" />
+
+    <TextView
+        android:id="@+id/U_in_SUES"
+        style="@style/letter"
+        android:layout_below="@+id/U_in_USE"
+        android:layout_toRightOf="@+id/S_in_SUES" />
+
+    <TextView
+        android:id="@+id/E_in_SUES"
+        style="@style/letter"
+        android:layout_below="@+id/U_in_USE"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/U_in_SUES" />
+
+    <TextView
+        android:id="@+id/second_S_in_SUES"
+        style="@style/letter"
+        android:layout_below="@+id/U_in_USE"
+        android:layout_toRightOf="@+id/E_in_SUES" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="290dp"
+        android:orientation="horizontal">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/first_letter_picked"
+            style="@style/chosenLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/second_letter_picked"
+            style="@style/chosenLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/third_letter_picked"
+            style="@style/chosenLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/fourth_letter_picked"
+            style="@style/chosenLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/fifth_letter_picked"
+            style="@style/chosenLetter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/U_in_USES"
+        style="@style/letter"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/E_in_SUE" />
+
+    <TextView
+        android:id="@+id/S_in_USES"
+        style="@style/letter"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/U_in_USES" />
+
+    <TextView
+        android:id="@+id/E_in_USES"
+        style="@style/letter"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/S_in_USES" />
+
+    <TextView
+        android:id="@+id/second_S_in_USES"
+        style="@style/letter"
+        android:layout_marginRight="2dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/E_in_USES" />
+
+
+    <TextView
+        android:id="@+id/G_in_GUESS"
+        style="@style/letter"
+        android:layout_below="@+id/S_in_SUE"
+        android:layout_toRightOf="@+id/E_in_SUE" />
+
+    <TextView
+        android:id="@+id/U_in_GUESS"
+        style="@style/letter"
+        android:layout_below="@+id/S_in_SUE"
+        android:layout_toRightOf="@+id/U_in_USES" />
+
+    <TextView
+        android:id="@+id/E_in_GUESS"
+        style="@style/letter"
+        android:layout_below="@+id/S_in_SUE"
+        android:layout_toRightOf="@+id/U_in_GUESS" />
+
+    <TextView
+        android:id="@+id/S_in_GUESS"
+        style="@style/letter"
+        android:layout_below="@+id/S_in_SUE"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/E_in_USES"
+        android:background="@drawable/letter_background_shape" />
+
+    <TextView
+        android:id="@+id/second_S_in_GUESS"
+        style="@style/letter"
+        android:layout_below="@+id/S_in_SUE"
+        android:layout_marginRight="2dp"
+        android:layout_toRightOf="@+id/S_in_GUESS" />
+
+    <TextView
+        android:id="@+id/letter_choice_circle"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
+        android:background="@drawable/circle_letter_bg"
+        android:layout_marginTop="350dp"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/top_letter_choice"
+        style="@style/circle_letters"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:text="@string/letter_E" />
+
+    <TextView
+        android:id="@+id/left_top_letter_choice"
+        style="@style/circle_letters"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:text="@string/letter_S"
+        android:layout_alignBaseline="@+id/right_top_letter_choice"
+        android:layout_alignBottom="@+id/right_top_letter_choice"
+        android:layout_alignLeft="@+id/letter_choice_circle"
+        android:layout_alignStart="@+id/letter_choice_circle" />
+
+    <TextView
+        android:id="@+id/right_top_letter_choice"
+        style="@style/circle_letters"
+        android:layout_below="@+id/top_letter_choice"
+        android:layout_marginLeft="115dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@+id/left_top_letter_choice"
+        android:text="@string/letter_U" />
+
+    <TextView
+        android:id="@+id/left_bottom_letter_choice"
+        style="@style/circle_letters"
+        android:layout_below="@+id/left_top_letter_choice"
+        android:layout_marginLeft="135dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/letter_G" />
+
+    <TextView
+        android:id="@+id/right_bottom_letter_choice"
+        style="@style/circle_letters"
+        android:layout_below="@+id/left_top_letter_choice"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_toRightOf="@+id/left_bottom_letter_choice"
+        android:text="@string/letter_S" />
+
+
+</RelativeLayout>
+

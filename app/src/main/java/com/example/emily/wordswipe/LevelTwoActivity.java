@@ -16,8 +16,17 @@ import java.util.List;
 
 public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchListener{
 
-    TextView swipeCircle;
-    static final int WORDSINTHELEVEL = 8;
+
+    private static final int WORDSINTHELEVEL = 8;
+
+    private static final String topLetter = "E";
+    private static final String topLeftLetter = "V";
+    private static final String bottomLeftLetter = "R";
+    private static final String bottomRightLetter = "F";
+    private static final String topRightLetter = "E";
+
+    private static final String[] words = new String[]{"EVE", "FEE",
+            "REF", "REV", "EVER", "FREE", "REEF", "FEVER"};
 
     Boolean topLetterPicked = false;
     Boolean topLeftLetterPicked = false;
@@ -34,6 +43,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     Boolean seventhWordFound = false;
     Boolean eighthWordFound = false;
 
+    TextView swipeCircle;
     TextView firstLetterPicked;
     TextView secondLetterPicked;
     TextView thirdLetterPicked;
@@ -44,7 +54,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     int countWordsFound = 0;
     List<String> lettersPicked = new ArrayList<>();
 
-    String[] words = new String[]{"EVE", "FEE", "REF", "REV", "EVER", "FREE", "REEF", "FEVER"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,11 +122,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     private int getLettersPicked(float x, float y) {
-        String topLetter = "E";
-        String topLeftLetter = "V";
-        String bottomLeftLetter = "R";
-        String bottomRightLetter = "F";
-        String topRightLetter = "E";
 
         if (countLettersPicked <= 5) {
             if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
@@ -288,6 +293,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
     }
 
     public void setWord(List<String> pickedLetters, int[] ids) {
+
         int i = 0;
         while (i < pickedLetters.size()) {
             TextView letterTV = (TextView) findViewById(ids[i]);
@@ -296,7 +302,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
         }
         countWordsFound++;
     }
-
 
     // make the letters above the circle that were chosen disappear after 0.5 seconds
     private void clearSelectedLetters() {

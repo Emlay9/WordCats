@@ -18,7 +18,9 @@
         </activity>
         <activity android:name=".LevelActivity" />
         <activity android:name=".LevelWonActivity" />
-        <activity android:name=".LevelTwoActivity"></activity>
+        <activity android:name=".LevelTwoActivity" />
+        <activity android:name=".LevelThreeActivity" />
+        <activity android:name=".WinActivity"></activity>
     </application>
 
 </manifest>

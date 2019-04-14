@@ -8,11 +8,13 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
-    <string name="letter_S">S</string>
-    <string name="letter_H">H</string>
     <string name="letter_E">E</string>
-    <string name="letter_L">L</string>
     <string name="letter_F">F</string>
+    <string name="letter_G">G</string>
+    <string name="letter_H">H</string>
+    <string name="letter_L">L</string>
     <string name="letter_R">R</string>
+    <string name="letter_S">S</string>
     <string name="letter_V">V</string>
+    <string name="letter_U">U</string>
 </resources>

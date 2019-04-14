@@ -1,6 +1,7 @@
 package com.example.emily.wordswipe;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.os.Looper;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,23 +14,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import android.os.Handler;
-
-
-// OnTouchListener implemented to register touch events (in this case the swiping) on the
-// the circle wheel where you pick words)
-
-public class LevelActivity extends AppCompatActivity implements View.OnTouchListener {
-
+public class LevelThreeActivity extends AppCompatActivity implements View.OnTouchListener{
     TextView swipeCircle;
-    static final int WORDSINTHELEVEL = 5;
-
-    //The letters in the circle
-    static final String topLetter = "E";
-    static final String topLeftLetter = "S";
-    static final String bottomLeftLetter = "L";
-    static final String bottomRightLetter = "F";
-    static final String topRightLetter = "H";
+    private static final int WORDSINTHELEVEL = 5;
+    private static final String topLetter = "E";
+    private static final String topLeftLetter = "S";
+    private static final String bottomLeftLetter = "G";
+    private static final String bottomRightLetter = "S";
+    private static final String topRightLetter = "U";
 
     Boolean topLetterPicked = false;
     Boolean topLeftLetterPicked = false;
@@ -43,7 +35,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     Boolean fourthWordFound = false;
     Boolean fifthWordFound = false;
 
-    //TextViews of the letters picked that shows up above the circle
     TextView firstLetterPicked;
     TextView secondLetterPicked;
     TextView thirdLetterPicked;
@@ -54,50 +45,33 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     int countWordsFound = 0;
     List<String> lettersPicked = new ArrayList<>();
 
-    String[] words = new String[]{"ELF", "SHE", "SELF", "FLESH", "SHELF"};
+    String[] words = new String[]{"SUE", "USE", "SUES", "USES", "GUESS"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level);
+        setContentView(R.layout.activity_level_three);
         countLettersPicked = 0;
 
         swipeCircle = (TextView) findViewById(R.id.letter_choice_circle);
         swipeCircle.setOnTouchListener(this);
     }
 
-    /***** onTouch(View v, MotionEvent event) info *****/
-    /* - The following method needs to be added when we implement View.OnTouchListener
-       - It's similar to the onClick() method for buttons
-     It's parameters are:
-            - the View v being touched and
-            - MotionEvent event gives information about the touch on that view (example: coordinates
-            of where its being pressed, if it's moving, where it stops etc etc...)
-     */
     @Override
     public boolean onTouch(View view, MotionEvent event) {
-
         resetBackgroundColor();
         if (view.getId() == R.id.letter_choice_circle) {
             switch (event.getAction()) {
-//                 ACTION_MOVE means when your finger is dragging across the screen
-//                 During this time we want to give feedback to the user to show what letters they're selecting
                 case MotionEvent.ACTION_MOVE: {
-//                   Get the coordinates of where on the circle is being touched
                     float x = event.getX();
                     float y = event.getY();
-//                    Uncomment the following line of code for a demo of how to see the coordinates on the circle
-//                    Toast.makeText(this, String.valueOf(x) + ", " + String.valueOf(y), Toast.LENGTH_SHORT).show();
+                    //Only allow up to 5 letters picked
                     getLettersPicked(x, y);
                     break;
                 }
-//                ACTION_UP means when you stop touching the screen
-//                 - When this happens we want to check if the swiped word is a match
-//                   and clear the word selection that pops up as you swipe
                 case MotionEvent.ACTION_UP: {
                     checkForMatch();
                     clearSelectedLetters();
-//                    Reset the variables
                     countLettersPicked = 0;
                     lettersPicked.clear();
                     topLetterPicked = false;
@@ -115,7 +89,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     private void checkForWin() {
         if(countWordsFound == WORDSINTHELEVEL)
         {
-            Intent levelComplete = new Intent(this, LevelWonActivity.class);
+            Intent levelComplete = new Intent(this, WinActivity.class);
             startActivity(levelComplete);
         }
     }
@@ -139,9 +113,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
     private int getLettersPicked(float x, float y) {
 
-        //Only allow up to 5 letters picked
         if (countLettersPicked <= 5) {
-            // coordinate areas on the circle corresponding to where the 5 letters are
             if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
                 lettersPicked.add(countLettersPicked, topLeftLetter);
                 topLeftLetterPicked = true;
@@ -213,42 +185,39 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     private void checkForMatch() {
-        //Convert List of chosen letters to a String
         StringBuilder sb = new StringBuilder();
         for (String letters : lettersPicked) {
             sb.append(letters);
         }
         String pickedWord = sb.toString();
 
-        //first check if the picked word is one of the level words
         if (Arrays.asList(words).contains(pickedWord)) {
             if (pickedWord.equals(words[0]) && !firstWordFound) {
-                int[] ids = new int[]{R.id.E_in_ELF, R.id.L_in_ELF, R.id.F_in_ELF};
+                int[] ids = new int[]{R.id.S_in_SUE, R.id.U_in_SUE, R.id.E_in_SUE};
                 setWord(lettersPicked, ids);
                 firstWordFound = true;
-                //change the background color of the popup letters to green to indicate word was found
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[1]) && !secondWordFound) {
-                int[] ids = new int[]{R.id.S_in_SHE, R.id.H_in_SHE, R.id.E_in_SHE};
+                int[] ids = new int[]{R.id.U_in_USE, R.id.S_in_USE, R.id.E_in_USE};
                 setWord(lettersPicked, ids);
                 secondWordFound = true;
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[2]) && !thirdWordFound) {
-                int[] ids = new int[]{R.id.S_in_SELF, R.id.E_in_SELF, R.id.L_in_SELF, R.id.F_in_SELF};
+                int[] ids = new int[]{R.id.S_in_SUES, R.id.U_in_SUES, R.id.E_in_SUES, R.id.second_S_in_SUES};
                 setWord(lettersPicked, ids);
                 thirdWordFound = true;
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[3]) && !fourthWordFound) {
-                int[] ids = new int[]{R.id.F_in_FLESH, R.id.L_in_FLESH, R.id.E_in_FLESH, R.id.S_in_FLESH, R.id.H_in_FLESH};
+                int[] ids = new int[]{R.id.U_in_USES, R.id.S_in_USES, R.id.E_in_USES, R.id.second_S_in_USES};
                 setWord(lettersPicked, ids);
                 fourthWordFound = true;
                 setBackgroundColorWordFound();
             }
             if (pickedWord.equals(words[4]) && !fifthWordFound) {
-                int[] ids = new int[]{R.id.S_in_SHELF, R.id.H_in_SHELF, R.id.E_in_SHELF, R.id.L_in_SHELF, R.id.F_in_SHELF};
+                int[] ids = new int[]{R.id.G_in_GUESS, R.id.U_in_GUESS, R.id.E_in_GUESS, R.id.S_in_GUESS, R.id.second_S_in_GUESS};
                 setWord(lettersPicked, ids);
                 fifthWordFound = true;
                 setBackgroundColorWordFound();
@@ -295,7 +264,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     public void setWord(List<String> pickedLetters, int[] ids) {
-        //set the TextViews to the letters of the word that was found
         int i = 0;
         while (i < pickedLetters.size()) {
             TextView letterTV = (TextView) findViewById(ids[i]);
@@ -304,7 +272,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         }
         countWordsFound++;
     }
-
 
     // make the letters above the circle that were chosen disappear after 0.5 seconds
     private void clearSelectedLetters() {
