@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.os.Handler;
+import android.widget.Toast;
 
 
 // OnTouchListener implemented to register touch events (in this case the swiping) on the
@@ -158,7 +159,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     private int getLettersPicked(float x, float y) {
 
         //Only allow up to 5 letters picked
-        if (countLettersPicked <= 5) {
             // coordinate areas on the circle corresponding to where the 5 letters are
             if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
                 lettersPicked.add(countLettersPicked, topLeftLetter);
@@ -195,12 +195,10 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                 topRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
-        }
         return countLettersPicked;
     }
 
     private void displayLetterChoice(List<String> lettersPicked, int countLettersPicked) {
-
         switch (countLettersPicked) {
             case 1: {
                 firstLetterPicked = (TextView) findViewById(R.id.first_letter_picked);

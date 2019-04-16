@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/level_background"
+    android:background="@drawable/cat_bg2"
     tools:context="com.example.emily.wordswipe.LevelThreeActivity">
 
     <TextView
@@ -222,7 +222,7 @@
         android:id="@+id/left_bottom_letter_choice"
         style="@style/circle_letters"
         android:layout_below="@+id/left_top_letter_choice"
-        android:layout_marginLeft="135dp"
+        android:layout_marginLeft="132dp"
         android:layout_marginTop="40dp"
         android:text="@string/letter_G" />
 
