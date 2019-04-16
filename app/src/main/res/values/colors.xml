@@ -6,6 +6,7 @@
     <color name="pickedLettersBackground">#FCD35B</color>
     <color name="pickedLetterNotAWordBg">#a35e8b</color>
     <color name="pickedLetterWordFoundBg">#7eda37</color>
+    <color name="letterPicked">#D69DD0</color>
     <color name="levelBackground">#999799</color>
     <color name="white">#fff</color>
 

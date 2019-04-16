@@ -5,6 +5,7 @@ import android.os.Looper;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -50,6 +51,13 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
     TextView fourthLetterPicked;
     TextView fifthLetterPicked;
 
+    //TextViews of the letters in the circle
+    TextView topLeftLetterTv;
+    TextView topLetterTv;
+    TextView topRightLetterTv;
+    TextView bottomLeftLetterTv;
+    TextView bottomRightLetterTv;
+
     int countLettersPicked = 0;
     int countWordsFound = 0;
     List<String> lettersPicked = new ArrayList<>();
@@ -62,7 +70,13 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         setContentView(R.layout.activity_level);
         countLettersPicked = 0;
 
-        swipeCircle = (TextView) findViewById(R.id.letter_choice_circle);
+        topLeftLetterTv = (TextView)findViewById(R.id.left_top_letter_choice);
+        topRightLetterTv = (TextView)findViewById(R.id.right_top_letter_choice);
+        topLetterTv = (TextView)findViewById(R.id.top_letter_choice);
+        bottomRightLetterTv = (TextView)findViewById(R.id.right_bottom_letter_choice);
+        bottomLeftLetterTv = (TextView)findViewById(R.id.left_bottom_letter_choice);
+
+        swipeCircle = findViewById(R.id.letter_choice_circle);
         swipeCircle.setOnTouchListener(this);
     }
 
@@ -99,12 +113,15 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                     clearSelectedLetters();
 //                    Reset the variables
                     countLettersPicked = 0;
+                    //Empty the array of letters picked
                     lettersPicked.clear();
+
                     topLetterPicked = false;
                     topLeftLetterPicked = false;
                     bottomLeftLetterPicked = false;
                     bottomRightLetterPicked = false;
                     topRightLetterPicked = false;
+
                     checkForWin();
                 }
             }
@@ -147,30 +164,35 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                 lettersPicked.add(countLettersPicked, topLeftLetter);
                 topLeftLetterPicked = true;
                 countLettersPicked++;
+                topLeftLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
             if (x > 290 && x < 450 && y < 180 && !topLetterPicked) {
                 lettersPicked.add(countLettersPicked, topLetter);
                 topLetterPicked = true;
                 countLettersPicked++;
+                topLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
             if (x > 175 && x < 250 && y > 555 && !bottomLeftLetterPicked) {
                 lettersPicked.add(countLettersPicked, bottomLeftLetter);
                 bottomLeftLetterPicked = true;
                 countLettersPicked++;
+                bottomLeftLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
             if (x > 530 && x < 650 && y > 535 && !bottomRightLetterPicked) {
                 lettersPicked.add(countLettersPicked, bottomRightLetter);
                 bottomRightLetterPicked = true;
                 countLettersPicked++;
+                bottomRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
             if (x > 595 && y > 260 && y < 390 && !topRightLetterPicked) {
                 lettersPicked.add(countLettersPicked, topRightLetter);
                 topRightLetterPicked = true;
                 countLettersPicked++;
+                topRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
         }
@@ -326,6 +348,13 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
                 fifthLetterPicked = (TextView) findViewById(R.id.fifth_letter_picked);
                 fifthLetterPicked.setVisibility(View.GONE);
+
+                topLeftLetterTv.setTextColor(getResources().getColor(R.color.white));
+                topLetterTv.setTextColor(getResources().getColor(R.color.white));
+                bottomLeftLetterTv.setTextColor(getResources().getColor(R.color.white));
+                bottomRightLetterTv.setTextColor(getResources().getColor(R.color.white));
+                topRightLetterTv.setTextColor(getResources().getColor(R.color.white));
+
             }
         }, 500);
 
