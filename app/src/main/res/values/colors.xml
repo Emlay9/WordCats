@@ -4,10 +4,10 @@
     <color name="colorPrimaryDark">#BDD358</color>
     <color name="colorAccent">#FF4081</color>
     <color name="pickedLettersBackground">#FCD35B</color>
-    <color name="pickedLetterNotAWordBg">#a35e8b</color>
+    <color name="pickedLetterNotAWordBg">#f297c0</color>
     <color name="pickedLetterWordFoundBg">#BDD358</color>
     <color name="letterPicked">#D69DD0</color>
     <color name="levelBackground">#999799</color>
     <color name="white">#fff</color>
-
+    <color name="menuButton">#a35e8b</color>
 </resources>

@@ -146,7 +146,6 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
 
     private int getLettersPicked(float x, float y) {
 
-        if (countLettersPicked <= 5) {
             if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
                 lettersPicked.add(countLettersPicked, topLeftLetter);
                 topLeftLetterPicked = true;
@@ -182,7 +181,7 @@ public class LevelTwoActivity extends AppCompatActivity implements View.OnTouchL
                 topRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
                 displayLetterChoice(lettersPicked, countLettersPicked);
             }
-        }
+
         return countLettersPicked;
     }
 

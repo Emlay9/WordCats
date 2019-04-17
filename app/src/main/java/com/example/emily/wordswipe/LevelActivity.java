@@ -91,14 +91,13 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
      */
     @Override
     public boolean onTouch(View view, MotionEvent event) {
-
         resetBackgroundColor();
-        if (view.getId() == R.id.letter_choice_circle) {
+
             switch (event.getAction()) {
-//                 ACTION_MOVE means when your finger is dragging across the screen
-//                 During this time we want to give feedback to the user to show what letters they're selecting
+//                ACTION_MOVE means when your finger is dragging across the screen
+//                During this time we want to give feedback to the user to show what letters they're selecting
                 case MotionEvent.ACTION_MOVE: {
-//                   Get the coordinates of where on the circle is being touched
+//                  Get the coordinates of where on the circle is being touched
                     float x = event.getX();
                     float y = event.getY();
 //                    Uncomment the following line of code for a demo of how to see the coordinates on the circle
@@ -126,7 +125,6 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
                     checkForWin();
                 }
             }
-        }
         return true;
     }
 
@@ -156,46 +154,43 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
         fifthLetterPicked.setBackgroundColor(ContextCompat.getColor(this,R.color.pickedLettersBackground));
     }
 
-    private int getLettersPicked(float x, float y) {
-
-        //Only allow up to 5 letters picked
-            // coordinate areas on the circle corresponding to where the 5 letters are
-            if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
-                lettersPicked.add(countLettersPicked, topLeftLetter);
-                topLeftLetterPicked = true;
-                countLettersPicked++;
-                topLeftLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
-                displayLetterChoice(lettersPicked, countLettersPicked);
-            }
-            if (x > 290 && x < 450 && y < 180 && !topLetterPicked) {
-                lettersPicked.add(countLettersPicked, topLetter);
-                topLetterPicked = true;
-                countLettersPicked++;
-                topLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
-                displayLetterChoice(lettersPicked, countLettersPicked);
-            }
-            if (x > 175 && x < 250 && y > 555 && !bottomLeftLetterPicked) {
-                lettersPicked.add(countLettersPicked, bottomLeftLetter);
-                bottomLeftLetterPicked = true;
-                countLettersPicked++;
-                bottomLeftLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
-                displayLetterChoice(lettersPicked, countLettersPicked);
-            }
-            if (x > 530 && x < 650 && y > 535 && !bottomRightLetterPicked) {
-                lettersPicked.add(countLettersPicked, bottomRightLetter);
-                bottomRightLetterPicked = true;
-                countLettersPicked++;
-                bottomRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
-                displayLetterChoice(lettersPicked, countLettersPicked);
-            }
-            if (x > 595 && y > 260 && y < 390 && !topRightLetterPicked) {
-                lettersPicked.add(countLettersPicked, topRightLetter);
-                topRightLetterPicked = true;
-                countLettersPicked++;
-                topRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
-                displayLetterChoice(lettersPicked, countLettersPicked);
-            }
-        return countLettersPicked;
+    private void getLettersPicked(float x, float y) {
+        // coordinate areas on the circle corresponding to where the 5 letters are
+        if (x > 290 && x < 450 && y < 180 && !topLetterPicked) {
+            lettersPicked.add(countLettersPicked, topLetter);
+            topLetterPicked = true;
+            countLettersPicked++;
+            topLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
+            displayLetterChoice(lettersPicked, countLettersPicked);
+        }
+        if (x < 145 && y < 390 && y > 240 && !topLeftLetterPicked) {
+            lettersPicked.add(countLettersPicked, topLeftLetter);
+            topLeftLetterPicked = true;
+            countLettersPicked++;
+            topLeftLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
+            displayLetterChoice(lettersPicked, countLettersPicked);
+        }
+        if (x > 175 && x < 250 && y > 555 && !bottomLeftLetterPicked) {
+            lettersPicked.add(countLettersPicked, bottomLeftLetter);
+            bottomLeftLetterPicked = true;
+            countLettersPicked++;
+            bottomLeftLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
+            displayLetterChoice(lettersPicked, countLettersPicked);
+        }
+        if (x > 530 && x < 650 && y > 535 && !bottomRightLetterPicked) {
+            lettersPicked.add(countLettersPicked, bottomRightLetter);
+            bottomRightLetterPicked = true;
+            countLettersPicked++;
+            bottomRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
+            displayLetterChoice(lettersPicked, countLettersPicked);
+        }
+        if (x > 595 && y > 260 && y < 390 && !topRightLetterPicked) {
+            lettersPicked.add(countLettersPicked, topRightLetter);
+            topRightLetterPicked = true;
+            countLettersPicked++;
+            topRightLetterTv.setTextColor(getResources().getColor(R.color.letterPicked));
+            displayLetterChoice(lettersPicked, countLettersPicked);
+        }
     }
 
     private void displayLetterChoice(List<String> lettersPicked, int countLettersPicked) {
@@ -328,10 +323,13 @@ public class LevelActivity extends AppCompatActivity implements View.OnTouchList
 
 
     // make the letters above the circle that were chosen disappear after 0.5 seconds
+    // and set the text color of the letters in the circle back to white
     private void clearSelectedLetters() {
+        // postDelayed() parameters are Runnable and time in ms to run that after
         new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
             @Override
             public void run() {
+                //the following executes after 500ms (see the 500 below)
                 firstLetterPicked = (TextView) findViewById(R.id.first_letter_picked);
                 firstLetterPicked.setVisibility(View.GONE);
 
