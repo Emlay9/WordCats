@@ -86,7 +86,7 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="0.5" />
 
         <TextView
             android:id="@+id/first_letter_picked"
@@ -121,7 +121,7 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_weight="0.5" />
     </LinearLayout>
 
     <TextView
